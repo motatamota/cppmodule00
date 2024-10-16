@@ -25,6 +25,8 @@ private:
 	std::string	privacy;
 
 public:
+	Contact() {}
+	~Contact() {}
 	void		setContact(std::string, std::string, std::string, std::string, std::string);
 	std::string	getfirst();
 	std::string	getlast();

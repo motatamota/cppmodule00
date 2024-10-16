@@ -31,6 +31,7 @@ private:
 
 public:
 	PhoneBook();
+	~PhoneBook() {}
 	void	ADD();
 	void	SEARCH();
 	void	EXIT();
