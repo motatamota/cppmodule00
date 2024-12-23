@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string>
 # include <limits>
+# include <fstream>
 # include "Contact.h"
 # include "PhoneBook.h"
 
