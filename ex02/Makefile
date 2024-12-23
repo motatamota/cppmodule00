@@ -2,7 +2,7 @@ NAME = account
 # FLAG = -Wall -Wextra -Werror
 SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 
 all: $(NAME)
 
