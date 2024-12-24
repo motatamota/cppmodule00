@@ -6,7 +6,7 @@
 /*   By: tashiget <tashiget@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:28 by tashiget          #+#    #+#             */
-/*   Updated: 2024/10/16 00:28:29 by tashiget         ###   ########.fr       */
+/*   Updated: 2024/12/24 20:13:48 by tashiget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_H
 # include <iostream>
 # include <string>
+# include <fstream>
 
 class	Contact
 {

@@ -6,11 +6,21 @@
 /*   By: tashiget <tashiget@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:50 by tashiget          #+#    #+#             */
-/*   Updated: 2024/12/23 20:07:44 by tashiget         ###   ########.fr       */
+/*   Updated: 2024/12/24 20:36:54 by tashiget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.h"
+
+void	eofcleaner()
+{
+	if (std::cin.eof())
+	{
+		std::cin.clear();
+		std::freopen("/dev/tty", "r", stdin);
+		std::cout << std::endl;
+	}
+}
 
 PhoneBook::PhoneBook()
 {
@@ -22,21 +32,27 @@ void	PhoneBook::ADD()
 {
 	std::cout << "Enter FirstName: ";
 	std::cin >> firstname;
+	eofcleaner();
 	std::cout << "Enter LastName: ";
 	std::cin >> lastname;
+	eofcleaner();
 	std::cout << "Enter NickName: ";
 	std::cin >> nickname;
+	eofcleaner();
 	std::cout << "Enter PhoneNumber: ";
 	std::cin >> phonenumber;
+	eofcleaner();
 	std::cout << "Enter privacy: ";
 	std::cin >> privacy;
+	eofcleaner();
 	book[current].setContact(firstname, lastname, nickname, phonenumber, privacy);
 	current++;
 	current = current % 8;
 	if (index < 8)
 		index++;
 	std::cout << std::endl;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.clear();
+	std::freopen("/dev/tty", "r", stdin);
 }
 
 void	PhoneBook::SEARCH()
@@ -80,8 +96,8 @@ void	PhoneBook::SEARCH()
 	while (!(std::cin >> n))
 	{
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Invalid input. Please enter a valid index: ";
+		std::freopen("/dev/tty", "r", stdin);
+		std::cout << "Invalid input. \nPlease enter a valid index: ";
     }
 	if (n > index || n <= 0)
 	{
