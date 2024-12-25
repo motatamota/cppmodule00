@@ -6,7 +6,7 @@
 /*   By: tashiget <tashiget@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:52 by tashiget          #+#    #+#             */
-/*   Updated: 2024/10/16 00:28:54 by tashiget         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:44:19 by tashiget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <iomanip>
 # include <limits>
+# include <cstdlib>
 # include "Contact.h"
 
 class	PhoneBook

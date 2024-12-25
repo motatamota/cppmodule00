@@ -6,7 +6,7 @@
 /*   By: tashiget <tashiget@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:32 by tashiget          #+#    #+#             */
-/*   Updated: 2024/12/24 20:20:20 by tashiget         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:48:45 by tashiget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ int	main()
 		}
 		if (std::cin.eof())
 		{
-			std::cin.clear();
-			std::freopen("/dev/tty", "r", stdin);
-			std::cout << std::endl;
+			std::cout << "Don't use ^D." << std::endl;
+			std::exit(0);
 		}
 	}
 }

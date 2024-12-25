@@ -6,7 +6,7 @@
 /*   By: tashiget <tashiget@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:50 by tashiget          #+#    #+#             */
-/*   Updated: 2024/12/24 20:36:54 by tashiget         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:48:29 by tashiget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	eofcleaner()
 {
 	if (std::cin.eof())
 	{
-		std::cin.clear();
-		std::freopen("/dev/tty", "r", stdin);
-		std::cout << std::endl;
+		std::cout << "Don't use ^D." << std::endl;
+		std::exit(0);
 	}
 }
 
@@ -70,7 +69,7 @@ void	PhoneBook::SEARCH()
 		std::cout << "Error: No data" << std::endl << std::endl;
 		return ;
 	}
-	for (n = 1; n <= index ; n++)
+	for (n = 1; n <= index ; n += 2)
 	{
 		std::cout << "|         " << n;
 		n = n - 1;
@@ -88,17 +87,15 @@ void	PhoneBook::SEARCH()
 			std::cout << std::setw(10) << std::right << book[n].getnick() << "|";
 		std::cout << std::endl;
 		std::cout << "---------------------------------------------" << std::endl;
-		n++;
 	}
 	std::cout << std::endl;
 	n = -1;
 	std::cout << "Enter index: ";
 	while (!(std::cin >> n))
 	{
-		std::cin.clear();
-		std::freopen("/dev/tty", "r", stdin);
-		std::cout << "Invalid input. \nPlease enter a valid index: ";
-    }
+		std::cout << "Don't use ^D." << std::endl;
+		std::exit(0);
+	}
 	if (n > index || n <= 0)
 	{
 		std::cout << "Error: No Data" << std::endl << std::endl;
@@ -106,34 +103,12 @@ void	PhoneBook::SEARCH()
 		return ;
 	}
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cout << "--------------------------------------------------------------------" << std::endl;
-	std::cout << "|     index|first name| last name|  nickname|     phone|   privacy|" << std::endl;
-	std::cout << "--------------------------------------------------------------------" << std::endl;
-	std::cout << "|         " << n;
-	n = n - 1;
-	if (book[n].getfirst().size() > 10)
-		std::cout << "|" << std::setw(10) << std::right << book[n].getfirst().substr(0, 9) + '.' << "|";
-	else
-		std::cout << "|" << std::setw(10) << std::right << book[n].getfirst() << "|";
-	if (book[n].getlast().size() > 10)
-		std::cout << std::setw(10) << std::right << book[n].getlast().substr(0, 9) + '.' << "|";
-	else
-		std::cout << std::setw(10) << std::right << book[n].getlast() << "|";
-	if (book[n].getnick().size() > 10)
-		std::cout << std::setw(10) << std::right << book[n].getnick().substr(0, 9) + '.' << "|";
-	else
-		std::cout << std::setw(10) << std::right << book[n].getnick() << "|";
-	if (book[n].getphone().size() > 10)
-		std::cout << std::setw(10) << std::right << book[n].getphone().substr(0, 9) + '.' << "|";
-	else
-		std::cout << std::setw(10) << std::right << book[n].getphone() << "|";
-	if (book[n].getprivacy().size() > 10)
-		std::cout << std::setw(10) << std::right << book[n].getprivacy().substr(0, 9) + '.' << "|";
-	else
-		std::cout << std::setw(10) << std::right << book[n].getprivacy() << "|";
-	std::cout << std::endl;
-	std::cout << "--------------------------------------------------------------------" << std::endl << std::endl;
-	n++;
+	std::cout << "index: " << index << std::endl;
+	std::cout << "first name: " << firstname << std::endl;
+	std::cout << "last name: " << lastname << std::endl;
+	std::cout << "nickname: " << nickname << std::endl;
+	std::cout << "phone number: " << phonenumber << std::endl;
+	std::cout << "privacy: " << privacy << std::endl << std::endl;
 }
 
 void	PhoneBook::EXIT()
